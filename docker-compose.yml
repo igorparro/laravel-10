@@ -33,12 +33,12 @@ services:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
             MYSQL_PASSWORD: ${DB_PASSWORD}
             MYSQL_USER: ${DB_USERNAME}
-        volumes:
-            - ./.docker/mysql/dbdata:/var/lib/mysql
         ports:
             - "3388:3306"
+        volumes:
+            - /var/lib/mysql:/var/lib/mysql
         networks:
-            - sistema-getao-network
+            - sistema-getao-network     
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
